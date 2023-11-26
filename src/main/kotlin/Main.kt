@@ -17,20 +17,13 @@ fun main() {
     val client: HttpClient = HttpClient.newHttpClient()
     val request = HttpRequest.newBuilder().uri(URI.create("https://www.cheapshark.com/api/1.0/games?id=146")).build()
 
-//    client.sendAsync(request, BodyHandlers.ofString())
-//        .thenApply { obj: HttpResponse<*> -> obj.body() }
-//        .thenAccept(System.out::println)
-//        .join()
-
     val response = client.send(request, BodyHandlers.ofString())
     val json = response.body()
 
-    println(json);
+    println(json)
 
-    val game: Game = Game() // Instance of Game's class
-    game.gameTitle = "aaa"
-    game.gameImage = "bbb"
-    game.gameDescription = "ccc"
+    val game: Game = Game("aaa", "bbb", "ccc") // Instance of Game's class
 
-    println(game) // game.toString()
+    println(game)
+
 }
