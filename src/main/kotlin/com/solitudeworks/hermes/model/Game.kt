@@ -1,3 +1,5 @@
+package com.solitudeworks.hermes.model
+
 data class Game(
     private val gameTitle: String,
     private val gameID: String = "",
