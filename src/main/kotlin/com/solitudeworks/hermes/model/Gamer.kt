@@ -13,6 +13,7 @@ data class Gamer(var name: String, var email: String) {
     var id: String? = null
         // public get is redundant
         private set
+    val searchedGames = mutableListOf<Game?>()
 
     init { // Executed before class's initialization
         if (this.name.isBlank()) throw IllegalArgumentException("Invalid name!")
@@ -42,6 +43,18 @@ data class Gamer(var name: String, var email: String) {
         val regex = Regex("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}\$")
         if (regex.matches(email)) return email
         else throw IllegalArgumentException("Invalid email!")
+    }
+
+    fun addSearchedGame(game: Game?) {
+        searchedGames.add(game)
+    }
+
+    companion object { // Simulate a static method
+        fun createGamer(): Gamer {
+            val gamer = Gamer("lleomeister", "leomeister@gmail.com", "13/02", "lleomeister")
+            println("$gamer was created!")
+            return gamer
+        }
     }
 
 }

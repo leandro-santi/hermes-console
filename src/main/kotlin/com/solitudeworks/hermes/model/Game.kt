@@ -1,9 +1,9 @@
 package com.solitudeworks.hermes.model
 
 data class Game(
-    private val gameTitle: String,
-    private val gameID: String = "",
-    private val gameThumb: String
+    val gameTitle: String,
+    val gameID: String = "",
+    val gameThumb: String
 ) {
 
     override fun toString(): String {
