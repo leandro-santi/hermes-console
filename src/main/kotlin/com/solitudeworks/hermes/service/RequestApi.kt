@@ -9,7 +9,7 @@ import java.net.http.HttpResponse
 
 class RequestApi {
 
-    fun search(searchId: String): GameInfo {
+    fun search(searchId: String): GameInfo? {
         val url = "https://www.cheapshark.com/api/1.0/games?id=$searchId"
 
         val client: HttpClient = HttpClient.newHttpClient()
@@ -17,6 +17,8 @@ class RequestApi {
 
         val response = client.send(request, HttpResponse.BodyHandlers.ofString())
         val json = response.body()
+
+        if (json.equals("[]")) return null;
 
         val gson = Gson()
 

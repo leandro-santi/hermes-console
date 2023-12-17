@@ -28,9 +28,9 @@ fun main() {
         var game: Game? = null
 
         val result = runCatching {
-            game = Game(answer.gameInfo.title, answer.gameInfo.steamAppID, answer.gameInfo.thumb)
+            if (answer == null) throw IllegalArgumentException()
 
-            // println(game)
+            game = Game(answer.gameInfo.title, answer.gameInfo.steamAppID, answer.gameInfo.thumb)
         }
 
         result.onSuccess {
@@ -44,17 +44,11 @@ fun main() {
 
     println("The search is finished!")
 
-    println("Searched Games:")
-    for (item in gamer.searchedGames) {
-        println(item.toString())
-    }
-
-    gamer.searchedGames.sortBy {
-        it?.gameTitle
-    }
-
-    gamer.searchedGames.forEach {
-        println(it?.gameTitle)
-    }
+    if (gamer.searchedGames.isNotEmpty()) {
+        println("Searched Games:")
+        for (item in gamer.searchedGames) {
+            println(item.toString())
+        }
+    } else println("You [${gamer.user}] has no searched games")
 
 }
