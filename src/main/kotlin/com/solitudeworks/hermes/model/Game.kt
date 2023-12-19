@@ -7,7 +7,7 @@ data class Game(
 ) {
 
     override fun toString(): String {
-        return "gameTitle='$gameTitle'\ngameID='$gameID'\ngameThumb='$gameThumb'"
+        return "gameTitle='$gameTitle'\ngameID='$gameID'\ngameThumb='$gameThumb'\n"
     }
 
 }

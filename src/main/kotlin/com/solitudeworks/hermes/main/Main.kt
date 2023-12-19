@@ -42,7 +42,7 @@ fun main() {
         }
     } while (search != "-1")
 
-    println("The search is finished!")
+    println("\nThe search is finished!\n")
 
     if (gamer.searchedGames.isNotEmpty()) {
         println("Searched Games:")
