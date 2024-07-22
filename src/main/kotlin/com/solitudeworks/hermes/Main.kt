@@ -1,4 +1,4 @@
-package com.solitudeworks.hermes.main
+package com.solitudeworks.hermes
 
 import com.solitudeworks.hermes.model.Game
 import com.solitudeworks.hermes.model.Gamer
